@@ -1,0 +1,6 @@
+{% extends "layout.html" %}
+{% block body %}
+<p><img src="{{prediction.predicted_image.url}}" class="img-fluid" alt="" id="imgpreview"></p>
+<h1>{{result}} : {{prob|floatformat:2}} %</h1>
+
+{% endblock %}

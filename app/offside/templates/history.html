@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+{% block body %}
+{% load custom_filters %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Original Image</th>
+            <th scope="col">Predicted Image</th>
+            <th scope="col">Result</th>
+            <th scope="col">Probability</th>
+            <th scope="col">Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for prediction in predictions %}
+        <tr>
+            <td>{{prediction.id}}</td>
+            <td>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#modal_{{prediction.id}}">
+                    Original
+                </button>
+            </td>
+            <td><button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#modal_predicted_{{prediction.id}}">
+                    Predicted
+                </button></td>
+            <td>
+                {% if prediction.offside_prob > 0.5 %}
+                offside
+                {%else%}
+                onside
+                {% endif %}
+            </td>
+            <td>
+                {% if prediction.offside_prob > 0.5 %}
+                {{ prediction.offside_prob |multiply:100| floatformat:2}}
+                {%else%}
+                {{prediction.offside_prob|subtract:1|positive|multiply:100|floatformat:2 }}
+
+                {% endif %}
+
+            </td>
+            <td>{{prediction.date}}</td>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+{% for prediction in predictions %}
+<div class="modal fade" id="modal_{{prediction.id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Original Image</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><img src="{{prediction.image.url}}" class="img-fluid" alt=""></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal_predicted_{{prediction.id}}" data-bs-backdrop="static" data-bs-keyboard="false"
+    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Predicted Image</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><img src="{{prediction.predicted_image.url}}" class="img-fluid" alt=""></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+{% endblock %}

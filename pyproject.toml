@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "offside_soccer_detection"
+version = "0.1.0"
+description = ""
+authors = ["Vinicius José <vinijosenog@hotmail.com>"]
+readme = "README.md"
+packages = [{include = "offside_soccer_detection"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+black = "^25.1.0"
+transformers = "^4.49.0"
+langchain = "^0.3.19"
+langchain-huggingface = "^0.1.2"
+ultralytics = "^8.3.81"
+roboflow = "^1.1.54"
+django = "^5.1.7"
+
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<form action="{% url 'upload_image' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mx-auto pb-4">
+        <label for="formFile" class="form-label">Upload Image</label>
+        <input class="form-control" type="file" id="image" name="image" accept='image/*' required
+            onchange="document.getElementById('imgpreview').src = window.URL.createObjectURL(this.files[0]) ">
+
+    </div>
+    <p><img src="#" class="img-fluid" alt="" id="imgpreview"></p>
+    <button type="input" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}
