@@ -1,6 +1,6 @@
 # OFFSIDE DETECTOR
 ![Python Version](https://img.shields.io/badge/Python-3.10%2B-blue.svg)
-[![License](https://img.shields.io/badge/License-Apache%202.0-orange)](./LICENSE)
+![License](https://img.shields.io/badge/License-Apache%202.0-orange)(./LICENSE)
 
 ## What is this project?
  - The purpouse of this project is create an AI using Pytorch and YOLO to decide if an image of a football match is offside or onside.
@@ -60,4 +60,4 @@
     ![Looking History](looking_history.jpg)
 
 ## Next steps:
- - AS any AI model , the dataset need to be big as possible for the AI understand exactly what you want, the current dataset for Offside detection for PyTorch has only 30 images, and with augmentation steps, this is turned into 101 images divided in three parts: valid, test and train, but its still not big enough, the next step would be get more images for this datase
+ - As any AI model , the dataset need to be big as possible for the AI understand exactly what you want, the current dataset for Offside detection for PyTorch has only 30 images, and with augmentation steps, this is turned into 101 images divided in three parts: valid, test and train, but its still not big enough, the next step would be get more images for this datase
