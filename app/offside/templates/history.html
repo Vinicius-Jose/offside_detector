@@ -2,7 +2,7 @@
 {% block body %}
 {% load custom_filters %}
 
-<table class="table">
+<table class="table table-striped round-corners ">
     <thead>
         <tr>
             <th scope="col">Id</th>
@@ -13,10 +13,10 @@
             <th scope="col">Date</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="table-group-divider">
         {% for prediction in predictions %}
         <tr>
-            <td>{{prediction.id}}</td>
+            <th scope="row">{{prediction.id}}</th>
             <td>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                     data-bs-target="#modal_{{prediction.id}}">
@@ -43,7 +43,7 @@
                 {% endif %}
 
             </td>
-            <td>{{prediction.date}}</td>
+            <td>{{prediction.date |date:"d/m/Y"}}</td>
         </tr>
         {% endfor %}
 
@@ -87,4 +87,5 @@
 </div>
 
 {% endfor %}
+
 {% endblock %}

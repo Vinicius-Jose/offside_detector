@@ -1,0 +1,6 @@
+.round-corners {
+    border-radius: 0.375rem;
+    /* Valor equivalente à classe `rounded` */
+    overflow: hidden;
+    /* Garante que o conteúdo respeite os cantos arredondados */
+}

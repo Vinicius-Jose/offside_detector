@@ -176,3 +176,5 @@ cython_debug/
 app/ai/datasets/
 .vscode/
 runs/
+app/media/images/original_images
+app/media/images/predictions

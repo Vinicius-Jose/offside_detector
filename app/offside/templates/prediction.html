@@ -1,6 +1,13 @@
 {% extends "layout.html" %}
 {% block body %}
-<p><img src="{{prediction.predicted_image.url}}" class="img-fluid" alt="" id="imgpreview"></p>
-<h1>{{result}} : {{prob|floatformat:2}} %</h1>
-
+<div class="col-md-6 text-center">
+    <div class="bg-white round-corners form-control">
+        <p>
+            <img src="{{prediction.predicted_image.url}}" class="img-fluid rounded mx-auto d-block"
+                style="max-height: 500px;" alt="">
+        </p>
+        <h4 class=" mx-auto d-block">{{result}} : {{prob|floatformat:2}} %</h4>
+        <a type="input" href="{% url 'index' %}" class="btn btn-primary">Back</a>
+    </div>
+</div>
 {% endblock %}

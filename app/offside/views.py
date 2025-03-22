@@ -7,6 +7,7 @@ from ai.facade import AIFacade
 from django.core.files.base import ContentFile
 import base64
 from threading import Thread
+from datetime import datetime
 
 
 def index(request: HttpRequest) -> HttpResponse:
