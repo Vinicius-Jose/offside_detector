@@ -37,7 +37,7 @@
     poetry run python app/manage.py makemigrations 
     poetry run python app/manage.py migrate
     ```
-- Now you only need to start the system:
+- Now you only need to start the system and open [http://127.0.0.1:8000/offside/index](http://127.0.0.1:8000/offside/index) on your favorite browser:
     ```bash
     poetry run python app/manage.py runserver
     ```
@@ -49,3 +49,15 @@
     - Index: where you upload image and send them to be predicted.
     - History: where you can see all images predicted 
     - Train: this will start training the model in a thread , please note that this may cause performance issues on your computer
+- Walktrough:
+    - Uploading Image:
+        ![Uploading Image](uploading_image.jpg)
+    - Checking the results:
+     ![Checking the results](checking_results.jpg)
+    - Open History:
+    ![Open History](history.jpg)
+    - Looking history:
+    ![Looking History](looking_history.jpg)
+
+## Next steps:
+ - AS any AI model , the dataset need to be big as possible for the AI understand exactly what you want, the current dataset for Offside detection for PyTorch has only 30 images, and with augmentation steps, this is turned into 101 images divided in three parts: valid, test and train, but its still not big enough, the next step would be get more images for this datase
