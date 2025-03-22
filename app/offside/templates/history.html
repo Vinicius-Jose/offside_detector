@@ -76,8 +76,19 @@
                 <h1 class="modal-title fs-5" id="staticBackdropLabel">Predicted Image {{prediction.id}}</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <p><img src="{{prediction.predicted_image.url}}" class="img-fluid" alt=""></p>
+            <div class="modal-body text-center">
+                <p><img src="{{prediction.predicted_image.url}}" class="img-fluid" alt="">
+                    {% if prediction.offside_prob > 0.5 %}
+                    offside
+                    {%else%}
+                    onside
+                    {% endif %}
+                    {% if prediction.offside_prob > 0.5 %}
+                    {{ prediction.offside_prob |multiply:100| floatformat:2}}
+                    {%else%}
+                    {{prediction.offside_prob|subtract:1|positive|multiply:100|floatformat:2 }}
+
+                    {% endif %}</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
