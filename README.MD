@@ -1,6 +1,6 @@
 # OFFSIDE DETECTOR
 ![Python Version](https://img.shields.io/badge/Python-3.10%2B-blue.svg)
-![License](https://img.shields.io/badge/License-Apache%202.0-orange)(./LICENSE)
+[![License](https://img.shields.io/badge/License-Apache%202.0-orange)](./LICENSE)
 
 ## What is this project?
  - The purpouse of this project is create an AI using Pytorch and YOLO to decide if an image of a football match is offside or onside.
