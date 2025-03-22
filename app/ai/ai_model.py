@@ -124,7 +124,12 @@ class OffsideDetector:
                 save(self.__model.state_dict(), self.saved_model_path)
         return {"cost_list": cost_list, "accuracy_list": accuracy_list}
 
-    def __execute_training(self, train_loader, optimizer, criterion):
+    def __execute_training(
+        self,
+        train_loader: DataLoader,
+        optimizer: Optimizer,
+        criterion: CrossEntropyLoss,
+    ):
         cost = 0
         for _, data in enumerate(train_loader):
             images, labels = data

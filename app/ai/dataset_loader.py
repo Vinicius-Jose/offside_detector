@@ -7,8 +7,8 @@ import yaml
 class DatasetLoader:
 
     def __init__(self) -> None:
-        self.default_dataset_folder = os.getenv("DEFAULT_DATASET_FOLDER")
-        self.api_key = os.getenv("ROBOFLOW_KEY")
+        self.default_dataset_folder: str = os.getenv("DEFAULT_DATASET_FOLDER")
+        self.api_key: str = os.getenv("ROBOFLOW_KEY")
 
     def roboflow_loader(
         self,

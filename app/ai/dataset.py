@@ -24,7 +24,7 @@ class RoboflowToTorch(Dataset):
     def __len__(self):
         return len(self.img_labels)
 
-    def __getitem__(self, idx):
+    def __getitem__(self, idx: int):
         img_path, label = self.img_labels[idx]
         image = decode_image(img_path)
         if self.transform:
