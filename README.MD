@@ -22,6 +22,8 @@
     - The project already has a model trained inside the  app/ai/resources foulder, if you want to train from zero, just delete all files inside this directory and click Train on web page. Note: if you don't delete those files, the system will load them and continue the train, this may cause overfitting
 
 ## How to run the system?
+- Duplicate the .env.sample to a new file called only .env
+    - Add on .env file your Roboflow API KEY see this [link](https://docs.roboflow.com/api-reference/authentication) to know how to get your key
 - You can run like any other Django Application, but firstly install poetry, on your cli:
     ```bash
     pip instal poetry
