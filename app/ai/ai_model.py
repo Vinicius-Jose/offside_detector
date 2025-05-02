@@ -20,13 +20,14 @@ import os
 from torchvision.transforms import Compose
 
 
-DEFAULT_MODEL_FOLDER = os.getenv("DEFAULT_AI_MODEL_FOLDER")
+DEFAULT_MODEL_FOLDER = os.getenv("DEFAULT_AI_MODEL_FOLDER", "./app/ai/resources/")
+DEFAULT_DATASET_FOLDER = os.getenv("DEFAULT_DATASET_FOLDER", "./app/ai/datasets/")
 
 
 class YOLOModel:
     def __init__(self, saved_model: str = "yolo_model.pt") -> None:
         super(YOLOModel).__init__()
-        self.default_dataset_folder: str = os.getenv("DEFAULT_DATASET_FOLDER")
+        self.default_dataset_folder: str = DEFAULT_DATASET_FOLDER
         settings.update({"datasets_dir": self.default_dataset_folder})
         self.saved_model_path: str = os.path.join(DEFAULT_MODEL_FOLDER, saved_model)
         self.__model: YOLO = self.__load_model()
