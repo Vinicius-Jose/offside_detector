@@ -4,7 +4,6 @@ version = "1.0.0"
 description = ""
 authors = ["Vinicius José <vinijosenog@hotmail.com>"]
 readme = "README.MD"
-packages = [{include = "offside_soccer_detection"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
