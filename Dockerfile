@@ -40,6 +40,8 @@ RUN pip install --no-cache-dir poetry
 # Configure Poetry to not create virtual environment
 RUN poetry config virtualenvs.create false
 
+RUN poetry lock
+
 # Install Python dependencies
 RUN poetry install 
 
